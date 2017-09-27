@@ -24,13 +24,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-    startstopwindow.cpp \
-    ipfschecker.cpp
+    src/ipfschecker.cpp \
+    src/main.cpp \
+    src/startstopwindow.cpp
 
 HEADERS += \
-    ipfschecker.h \
-    startstopwindow.h
+    src/ipfschecker.h \
+    src/startstopwindow.h
 
 FORMS += \
         mainwindow.ui
