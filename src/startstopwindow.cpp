@@ -10,6 +10,16 @@ StartStopWindow::StartStopWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //For some reason designer works with Vertex-Maia, but once built, only
+    //works with Adawaita, so i'm setting Adawaita names here
+    //Todo: find out why and fix for max theme support
+
+    ui->action_WebUI->setIcon(QIcon::fromTheme("applications-internet"));
+    ui->action_quit->setIcon(QIcon::fromTheme("application-exit"));
+    ui->action_about->setIcon(QIcon::fromTheme("starred"));
+    ui->action_start->setIcon(QIcon::fromTheme("media-playback-start"));
+    ui->action_stop->setIcon(QIcon::fromTheme("media-playback-stop"));
+
     m_trayIcon->setIcon(QIcon(":/myRes/tray"));
     m_trayIcon->setContextMenu(ui->menu_allForTray);
     m_trayIcon->setVisible(true);
