@@ -9,7 +9,7 @@ pkgver=0.1
 pkgrel=1
 epoch=
 pkgdesc="Adds tray icon to start and stop IPFS"
-arch=('any')
+arch=('x86_64')
 url="https://github.com/PaulCombal/IPFS-Tray"
 license=('GPL 3')
 depends=('procps-ng')
@@ -19,15 +19,19 @@ install=
 changelog=
 source=("$pkgname-$pkgver.tar.gz")
 noextract=()
-md5sums=()
+md5sums=('f9a11d7866552915e3b4c4423220537d')
 
 build() {
-	cd "$pkgname-$pkgver"
-	./configure --prefix=/usr
+	cd IPFS-Tray-package
 	make
 }
 
 package() {
-	cd "$pkgname-$pkgver"
+	cd IPFS-Tray-package
+	echo ${pkgdir}
+	ls
+	pwd
+	mkdir -p ${pkgdir}/usr/local/bin/
+	mv ./IPFS_stop_start ${pkgdir}/usr/local/bin/ipfs-tray
 	make DESTDIR="$pkgdir/" install
 }
