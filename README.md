@@ -6,12 +6,15 @@ Built for Linux using Qt.
 
 PKGBUILD is not yet correct. No makefile yet either. Kind of a slackware, yet handy.
 
+## Install instructions
+
+Run ./MakePackage.sh, then install the generated package with your favorite package manager.
+
 Current release (v0.1-1): 
 
 * English Translations: Not OK
 * Correct icon paths: Not OK (Only supports Adawaita, Vertex-maia won't work)
 * AUR Distribution: Not OK
-* Building instructions: Not OK
 * Correct Coding style: Not OK
 * Add files to IPFS: Not OK
 * GUI launch at startup: Not OK
