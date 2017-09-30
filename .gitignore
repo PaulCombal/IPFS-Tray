@@ -1,6 +1,8 @@
 *.pro.user
 *.qmake.stash
+*.pkg.tar.xz
 release/*
 debug/*
+pack/*
 ui_mainwindow.h
 ipfs-tray
