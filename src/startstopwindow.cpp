@@ -4,6 +4,7 @@ StartStopWindow::StartStopWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_mainProcess(new QProcess()), //No parent, we want it to keep runnin after close
+    m_stopProcess(new QProcess()),
     m_trayIcon(new QSystemTrayIcon(this)),
     m_isIPFSRunning(false),
     m_userExitRequested(false)
@@ -12,13 +13,36 @@ StartStopWindow::StartStopWindow(QWidget *parent) :
 
     //For some reason designer works with Vertex-Maia, but once built, only
     //works with Adawaita, so i'm setting Adawaita names here
-    //Todo: find out why and fix for max theme support
+    //Defaults are Vertex-Maia names
 
-    ui->action_WebUI->setIcon(QIcon::fromTheme("applications-internet"));
-    ui->action_quit->setIcon(QIcon::fromTheme("application-exit"));
-    ui->action_about->setIcon(QIcon::fromTheme("starred"));
-    ui->action_start->setIcon(QIcon::fromTheme("media-playback-start"));
-    ui->action_stop->setIcon(QIcon::fromTheme("media-playback-stop"));
+    if(QIcon::themeName() == QString("Adwaita"))
+    {
+
+        qDebug() << "Current icon theme is adwaita, changing icons";
+
+        ui->action_WebUI->setIcon(QIcon::fromTheme("applications-internet"));
+        ui->action_quit->setIcon(QIcon::fromTheme("application-exit"));
+        ui->action_about->setIcon(QIcon::fromTheme("starred"));
+        ui->action_start->setIcon(QIcon::fromTheme("media-playback-start"));
+        ui->action_stop->setIcon(QIcon::fromTheme("media-playback-stop"));
+    }
+    else if(QIcon::themeName() == QString("Vertex-Maia"))
+    {
+        qDebug() << "Current icon theme is Vertex-Maia, gotta see if that works";
+        //https://forum.qt.io/topic/64963/setting-qicon-with-svg-file-as-a-qaction-icon-problem/4
+
+        //If that doesn't work see if using QPixmap works
+    }
+    else
+    {
+        qDebug() << "Unknown icon theme, using included Adwaita icons";
+
+        ui->action_WebUI->setIcon(QIcon(":/myRes/icons/applications-internet.png"));
+        ui->action_quit->setIcon(QIcon(":/myRes/icons/application-exit.png"));
+        ui->action_about->setIcon(QIcon(":/myRes/icons/starred.png"));
+        ui->action_start->setIcon(QIcon(":/myRes/icons/media-playback-start.png"));
+        ui->action_stop->setIcon(QIcon(":/myRes/icons/media-playback-stop.png"));
+    }
 
     m_trayIcon->setIcon(QIcon(":/myRes/tray"));
     m_trayIcon->setContextMenu(ui->menu_allForTray);
@@ -73,10 +97,18 @@ StartStopWindow::StartStopWindow(QWidget *parent) :
     //Finally prepare for the rest
     ui->isInstalledLabel->setText(tr("Oui"));
     ui->confFolderLabel->setText("~/.ipfs");
-    QStringList arguments;
+
+    QStringList startArguments;
+    QStringList stopArguments;
+    startArguments << "daemon";
+    stopArguments << "shutdown";
+
     m_mainProcess->setProgram("ipfs");
-    arguments << "daemon";
-    m_mainProcess->setArguments(arguments);
+    m_mainProcess->setArguments(startArguments);
+
+    m_stopProcess->setProgram("ipfs");
+    m_stopProcess->setArguments(stopArguments);
+
 }
 
 void StartStopWindow::closeEvent(QCloseEvent *event)
@@ -108,25 +140,11 @@ void StartStopWindow::on_action_start_triggered()
 
 void StartStopWindow::on_action_stop_triggered()
 {
-    //If IPFS has been started by this window
-    if(m_mainProcess->state() != QProcess::NotRunning)
+    if(m_stopProcess->state() == QProcess::NotRunning)
     {
-        m_mainProcess->terminate();
-        m_mainProcess->waitForFinished();
-    }
-    else
-    {
-        //Find out the pid and send a sigterm
-        QProcess getPIDProcess;
-        getPIDProcess.start(QString("pgrep -x ipfs"));
-        getPIDProcess.waitForFinished();
-
-        int PID = QString(getPIDProcess.readAllStandardOutput()).toInt();
-        qDebug() << QString("IPFS not started by this. Process ID: ") << PID;
-
-        //TODO : Asserts on pid
-
-        kill(PID, SIGTERM);
+        m_stopProcess->start();
+        ui->statusLabel->setText(QString(tr("Demande d'arrêt envoyée. <br />Essayez de rappuyer si trop long.")));
+        ui->statusLabel->setStyleSheet(QString("QLabel {color: orange; }"));
     }
 }
 

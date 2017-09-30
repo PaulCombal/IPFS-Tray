@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/myRes">
         <file alias="tray">images/tray.png</file>
+        <file>icons/application-exit.png</file>
+        <file>icons/applications-internet.png</file>
+        <file>icons/media-playback-pause.png</file>
+        <file>icons/media-playback-start.png</file>
+        <file>icons/starred.png</file>
+        <file>icons/media-playback-stop.png</file>
     </qresource>
 </RCC>

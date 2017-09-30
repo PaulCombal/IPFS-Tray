@@ -533,7 +533,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Appuyer sur le bouton quitter supprime également l'icône.</string>
+       <string>Appuyer sur le bouton &quot;Quitter&quot; supprime également l'icône.</string>
       </property>
      </widget>
     </item>

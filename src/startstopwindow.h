@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include "ui_mainwindow.h"
-#include <csignal>
 #include <fstream>
 #include <QDebug>
 #include <QDesktopServices>
@@ -48,6 +47,7 @@ private:
     Ui::MainWindow *ui;
 
     QProcess *m_mainProcess;
+    QProcess *m_stopProcess;
     QSystemTrayIcon *m_trayIcon;
     QJsonObject m_IPFSsettings;
 

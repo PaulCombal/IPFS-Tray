@@ -13,7 +13,7 @@ arch=('x86_64')
 url="https://github.com/PaulCombal/IPFS-Tray"
 license=('GPL 3')
 depends=('procps-ng')
-makedepends=()
+makedepends=('gcc', 'g++')
 optdepends=('ipfs: any IPFS version must be installed')
 install=
 changelog=
@@ -27,11 +27,25 @@ build() {
 }
 
 package() {
+	
+	# Change to ${pkgdir}/usr/bin/	if AUR/internet release. /local is for local package only
+	binInstallPath='/usr/local/bin/'
+	
 	cd IPFS-Tray-package
-	echo ${pkgdir}
-	ls
-	pwd
-	mkdir -p ${pkgdir}/usr/local/bin/
-	mv ./IPFS_stop_start ${pkgdir}/usr/local/bin/ipfs-tray
+	
+	# echo ${pkgdir}
+	# ls
+	# pwd
+	
+	echo "Installing binaries in ${pkgdir}${binInstallPath}"
+	mkdir -p ${pkgdir}${binInstallPath}
+	
+	# Translations folder
+	mkdir -p ${pkgdir}/opt/ipfs-tray/translations/
+
+	# Move the compiled binary to
+	mv ./ipfs-tray ${pkgdir}${binInstallPath}
+	mv ./translations/*.qm ${pkgdir}/opt/ipfs-tray/translations/
+
 	make DESTDIR="$pkgdir/" install
 }

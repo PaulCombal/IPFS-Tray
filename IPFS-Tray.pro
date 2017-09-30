@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = IPFS_stop_start
+TARGET = ipfs-tray
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -36,3 +36,7 @@ FORMS += \
         mainwindow.ui
 
 RESOURCES = myResources.qrc
+
+TRANSLATIONS = translations/ipfs-tray_en.ts
+
+CONFIG += debug_and_release
