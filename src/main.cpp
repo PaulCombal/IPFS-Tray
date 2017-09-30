@@ -46,10 +46,10 @@ int main(int argc, char *argv[])
                 QString("/usr/share/icons/") + QIcon::themeName()*/
      );
 
-    qDebug() << "themeSearchPaths:" << QIcon::themeSearchPaths() << QIcon::themeName();
+    //qDebug() << "themeSearchPaths:" << QIcon::themeSearchPaths() << QIcon::themeName();
 
     StartStopWindow w;
-    new IPFSChecker(&w);
+    IPFSChecker updater(&w);
     w.show();
 
     return a.exec();

@@ -9,6 +9,7 @@ PKGBUILD is not yet correct. No makefile yet either. Kind of a slackware, yet ha
 ## Install instructions
 
 Run ./MakePackage.sh, then install the generated package with your favorite package manager.
+To build only, run "qmake", then "make release".
 
 ### Current release (v0.1-1): 
 

@@ -1,6 +1,7 @@
 *.pro.user
 *.qmake.stash
 *.pkg.tar.xz
+Makefile*
 release/*
 debug/*
 pack/*
