@@ -1,2 +1,6 @@
 *.pro.user
 *.qmake.stash
+release/*
+debug/*
+ui_mainwindow.h
+ipfs-tray
