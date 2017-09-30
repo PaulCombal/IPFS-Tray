@@ -207,5 +207,5 @@ void StartStopWindow::on_action_quit_triggered()
 
 void StartStopWindow::on_action_about_triggered()
 {
-    QMessageBox::information(this, tr("À propos"), tr("Ce programme a été réalisé avec beaucoup de fierté et de flemme par PaulCombal."));
+    QMessageBox::information(this, tr("À propos"), tr("Ce programme a été réalisé avec beaucoup de fierté et de flemme par PaulCombal.<br /><a href=\"https://github.com/PaulCombal/IPFS-Tray\">Ce projet sur Github</a>"));
 }

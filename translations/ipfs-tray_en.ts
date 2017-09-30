@@ -197,8 +197,13 @@
     </message>
     <message>
         <location filename="../src/startstopwindow.cpp" line="210"/>
+        <source>Ce programme a été réalisé avec beaucoup de fierté et de flemme par PaulCombal.&lt;br /&gt;&lt;a href=&quot;https://github.com/PaulCombal/IPFS-Tray&quot;&gt;Ce projet sur Github&lt;/a&gt;</source>
+        <translatorcomment>Heh that&apos;s me :)</translatorcomment>
+        <translation>This programe has lazily been made by PaulCombal. Contributors welcome!&lt;br /&gt;&lt;a href=&quot;https://github.com/PaulCombal/IPFS-Tray&quot;&gt;This project on Github</translation>
+    </message>
+    <message>
         <source>Ce programme a été réalisé avec beaucoup de fierté et de flemme par PaulCombal.</source>
-        <translation>This programe has lazily been made by PaulCombal. Contributors welcome!</translation>
+        <translation type="vanished">This programe has lazily been made by PaulCombal. Contributors welcome!</translation>
     </message>
 </context>
 </TS>
