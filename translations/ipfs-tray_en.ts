@@ -40,9 +40,13 @@
         <translation>Closing the window keeps the tray icon.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="536"/>
         <source>Appuyer sur le bouton quitter supprime également l&apos;icône.</source>
-        <translation>Clicking on quit also removes the tray icon.</translation>
+        <translation type="vanished">Clicking on quit also removes the tray icon.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="536"/>
+        <source>Appuyer sur le bouton &quot;Quitter&quot; supprime également l&apos;icône.</source>
+        <translation>Clicking the &quot;Quit&quot; button also removes the tray icon.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
@@ -117,59 +121,82 @@
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <location filename="../src/main.cpp" line="16"/>
+        <source>Permet d&apos;arrêter et lancer IPFS grâce à une interface graphique.</source>
+        <translation>Allows you to stop and start IPFS using a graphical interface.</translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="19"/>
+        <source>Override la langue du système</source>
+        <translation>Override the system language</translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="20"/>
+        <source>Exemple: français -&gt; fr, english -&gt; en</source>
+        <translation>Eg: french -&gt; fr, english -&gt; en</translation>
+    </message>
+</context>
+<context>
     <name>StartStopWindow</name>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="43"/>
+        <location filename="../src/startstopwindow.cpp" line="67"/>
         <source>Installation d&apos;IPFS incomplète</source>
         <translation>Incomplete IPFS installation</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="44"/>
+        <location filename="../src/startstopwindow.cpp" line="68"/>
         <source>IPFS n&apos;a ps encore été initialisé. Initialiser IPFS avec les paramètres par défaut?</source>
         <translation>IPFS hasn&apos;t been initialized yet. Initialize IPFS now with the default settings?</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="55"/>
+        <location filename="../src/startstopwindow.cpp" line="79"/>
         <source>Erreur</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="56"/>
+        <location filename="../src/startstopwindow.cpp" line="80"/>
         <source>L&apos;initialisation d&apos;IPFS a échoué. Initialisez manuellement IPFS avec les paramètres par défaut, puis relancez ce logiciel.</source>
         <translation>An error occurred initializing IPFS. Please manually initialize IPFS with the default parameters, then try restarting this program.</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="62"/>
+        <location filename="../src/startstopwindow.cpp" line="86"/>
         <source>Succès</source>
         <translation>Success</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="63"/>
+        <location filename="../src/startstopwindow.cpp" line="87"/>
         <source>IPFS a correctement été initialisé.</source>
         <translation>IPFS has successfully been initialized.</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="74"/>
+        <location filename="../src/startstopwindow.cpp" line="98"/>
         <source>Oui</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="137"/>
+        <location filename="../src/startstopwindow.cpp" line="146"/>
+        <source>Demande d&apos;arrêt envoyée. &lt;br /&gt;Essayez de rappuyer si trop long.</source>
+        <translation>IPFS has been asked to stop. &lt;br /&gt;If taking too long, try pressing the buttin again.</translation>
+    </message>
+    <message>
+        <location filename="../src/startstopwindow.cpp" line="155"/>
         <source>IPFS activé</source>
         <translation>IPFS is activated</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="146"/>
+        <location filename="../src/startstopwindow.cpp" line="164"/>
         <source>IPFS non démarré</source>
         <translation>IPFS not started</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="192"/>
+        <location filename="../src/startstopwindow.cpp" line="210"/>
         <source>À propos</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../src/startstopwindow.cpp" line="192"/>
+        <location filename="../src/startstopwindow.cpp" line="210"/>
         <source>Ce programme a été réalisé avec beaucoup de fierté et de flemme par PaulCombal.</source>
         <translation>This programe has lazily been made by PaulCombal. Contributors welcome!</translation>
     </message>
